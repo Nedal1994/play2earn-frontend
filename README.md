@@ -1,6 +1,6 @@
-# Play2Earn Landing Page
+# Play2Earn website
 
-This repository contains the code for the Play2Earn landing page, a play-to-earn platform where users can complete tasks and earn rewards. The application is built using React, Vite, and various other libraries to provide a seamless user experience.
+This repository contains the code for the Play2Earn wesbite, a play-to-earn platform where users can complete tasks and earn rewards. The application is built using React, Vite, and various other libraries to provide a seamless user experience.
 
 ## Table of Contents
 
