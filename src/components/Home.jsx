@@ -78,8 +78,9 @@ const Home = () => {
               <Link to="/earn" className="text-white hover:text-blue-200 mx-2 my-1">Earn</Link>
               <Link to="/leaderboard" className="text-white hover:text-blue-200 mx-2 my-1">Leaderboard</Link>
               <Link to="/referrals" className="text-white hover:text-blue-200 mx-2 my-1">Referrals</Link>
-              <Button variant="outline" className="bg-transparent hover:bg-blue-400 text-white border-white hover:border-transparent mx-2 my-1">Login</Button>
-              <Button variant="default" className="bg-white hover:bg-blue-100 text-blue-500 mx-2 my-1">Sign Up</Button>
+              <Link to="/signup" className="text-white hover:text-blue-200 mx-2 my-1">Signup</Link>
+              <Link to="/login" className="text-white hover:text-blue-200 mx-2 my-1">Login</Link>
+
             </nav>
           </div>
         </header>

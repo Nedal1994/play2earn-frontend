@@ -1,0 +1,212 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('../../assets/bg.png');
+ }
+
+.play {
+  padding: 20px;
+  color: #000000;
+  font-size: 27px;
+  font-weight: bold;
+}
+.app {
+  max-width: 1100px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  font-size: 30px;
+  color: #333;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* To allow wrapping if needed */
+}
+.tab-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #FFFFFF;
+  border-radius: 50px;
+  margin: 5px; /* Adjust margin for spacing between buttons */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.tab-button.active,
+.tab-button:hover {
+  background-color: #2980B9;
+  transform: translateY(-5px);
+}
+
+.faq-section {
+  margin-bottom: 20px;
+}
+
+.faq-category {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  background-color: #ECF0F1;
+  color: #333;
+  border: none;
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.faq-question:hover {
+  background-color: #D5DBDB;
+}
+.arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+.arrow.open {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+  background-color: #F9F9F9;
+  padding: 15px;
+  margin-top: 5px;
+  border-left: 5px solid #3498DB;
+  border-right: 5px solid #3498DB;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  font-size: 14px;
+  color: #666;
+}
+
+footer a {
+  color: #3498DB;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.contact-form {
+  display: grid;
+  gap: 20px;
+}
+.contact-form label {
+  font-weight: bold;
+  font-size: 16px;
+}
+.contact {
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  background-color: #F0F0F0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+}
+.ip,
+.contact-form textarea {
+  resize: none;
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+.contact-form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  margin: 5px; /* Adjust margin for spacing between buttons */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.contact-form button:hover {
+  background-color: #0056B3;
+}
+.test-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.test {
+  background-color: #ECF0F1;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.test:hover {
+  background-color: #D5DBDB;
+  transform: translateY(-5px);
+}
+a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #3498DB;
+}
+
+.form-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
