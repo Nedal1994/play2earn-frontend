@@ -78,6 +78,7 @@ const Home = () => {
               <Link to="/earn" className="text-white hover:text-blue-200 mx-2 my-1">Earn</Link>
               <Link to="/leaderboard" className="text-white hover:text-blue-200 mx-2 my-1">Leaderboard</Link>
               <Link to="/referrals" className="text-white hover:text-blue-200 mx-2 my-1">Referrals</Link>
+              <Link to="/help-and-support" className="text-white hover:text-blue-200 mx-2 my-1">Help and Support</Link>
               <Link to="/signup" className="text-white hover:text-blue-200 mx-2 my-1">Signup</Link>
               <Link to="/login" className="text-white hover:text-blue-200 mx-2 my-1">Login</Link>
 
