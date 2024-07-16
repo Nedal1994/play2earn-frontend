@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './css/Survey.css';
+import './css/Help-Support-Page.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('faq');

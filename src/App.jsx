@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import ChatBot from './components/ChatBot';
 import './App.css';
-import Survey from './components/Survey'
+import Help from './components/Help-Support-Page'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
@@ -14,7 +14,7 @@ const App = () => {
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/survey" element={<Survey />} />
+          <Route path="/help-and-support" element={<Help />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           {/* Add other routes here */}
