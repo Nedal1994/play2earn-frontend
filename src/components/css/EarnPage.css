@@ -1,0 +1,109 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #5D9CEC ;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
+  background-color: #5D9CEC;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 48px;
+}
+
+.task-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between task containers */
+}
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1 1 calc(50% - 20px);
+  background-color: #4A89DC;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.507);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  max-height: 150px; /* Max height to control layout */
+}
+
+.task-container:hover {
+  transform: translateY(-5px);
+}
+
+.task-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-content h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.task-content p {
+  margin: 5px 0;
+  color: #ffffff;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.task-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #355C7D;
+  color: #ffffff;
+  border: none;
+  border-radius: 28px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #007bff;
+}
+
+.filter-button.active {
+  background-color: #007bff;
+}

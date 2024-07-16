@@ -1,0 +1,10 @@
+/* src/Components/TasksSection.css */
+.tasks-section {
+    padding: 20px;
+  }
+  
+  .tasks-section h2 {
+    margin-bottom: 20px;
+    color: #1F26F2;
+    text-align: center;
+  }
