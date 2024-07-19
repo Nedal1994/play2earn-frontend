@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '../App.css';
 import { CustomPrevArrow, CustomNextArrow } from './ui/CustomArrows';
 import { getAuth, signInWithEmailAndPassword, signInWithPopup,createUserWithEmailAndPassword,sendPasswordResetEmail  } from 'firebase/auth';
-import { app } from '../config/fb';
+import { app } from './fb';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const handlePasswordReset = async (email) => {
