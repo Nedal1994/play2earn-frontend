@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, DollarSign, Users } from 'lucide-react';
+import { CheckCircle, DollarSign, Users, Trophy, Medal, Award, Crown } from 'lucide-react';
 import { FaTwitter, FaInstagram, FaGithub, FaDiscord, FaTelegramPlane } from 'react-icons/fa';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../App.css';
 import { CustomPrevArrow, CustomNextArrow } from './ui/CustomArrows';
+
+
 
 const Home = () => {
   const taskTypes = useMemo(() => [
@@ -23,7 +25,7 @@ const Home = () => {
     {
       title: "Complete Tasks, Earn Reward",
       description: "Join our platform to tackle exciting tasks and get paid for your skills!",
-      image: "assets/pic2.jpg"
+      image: 'assets/pic2.jpg'
     },
     {
       title: "Another Company",
@@ -59,16 +61,37 @@ const Home = () => {
     ]
   }), []);
 
+  
   const partnerLogos = useMemo(() => [
-    "/api/placeholder/150/50",
-    "/api/placeholder/150/50",
-    "/api/placeholder/150/50",
-    "/api/placeholder/150/50",
-    "/api/placeholder/150/50",
+    '/assets/new4.png',
+    '/assets/new2.png',
+    '/assets/new3.png',
+    '/assets/new1.png',
+    '/assets/new5.png',
+    '/assets/new6.png',
   ], []);
+
+  const players = [
+    { rank: 1, user: { name: 'John Doe', profile: 'john_doe' }, points: 97.1238 },
+    { rank: 2, user: { name: 'Jane Smith', profile: 'jane_smith' }, points: 62.73737 },
+    { rank: 3, user: { name: 'Bob Johnson', profile: 'bob_johnson' }, points: 60.33707 },
+    { rank: 4, user: { name: 'Alice Brown', profile: 'alice_brown' }, points: 55.09825 },
+  ];
+
+  const getRankIcon = (rank) => {
+    switch (rank) {
+      case 1: return <Trophy className="h-6 w-6 text-yellow-400" />;
+      case 2: return <Crown className="h-6 w-6 text-amber-600" />;
+      case 3: return <Award className="h-6 w-6 text-amber-600" />;
+      case 4: return <Medal className="h-6 w-6 text-grey-100" />;
+      
+      default: return null;
+    }
+  };
 
   return (
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+        
         {/* Header */}
         <header className="relative overflow-hidden bg-gradient-to-b from-blue-500 to-blue-300 text-white p-4">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
@@ -76,11 +99,10 @@ const Home = () => {
             <nav className="flex flex-wrap justify-center md:justify-end items-center">
               <Link to="/home" className="text-white hover:text-blue-200 mx-2 my-1">Home</Link>
               <Link to="/earn" className="text-white hover:text-blue-200 mx-2 my-1">Earn</Link>
-              <Link to="/leaderboard" className="text-white hover:text-blue-200 mx-2 my-1">Leaderboard</Link>
-              <Link to="/referrals" className="text-white hover:text-blue-200 mx-2 my-1">Referrals</Link>
-              <Link to="/signup" className="text-white hover:text-blue-200 mx-2 my-1">Signup</Link>
-              <Link to="/login" className="text-white hover:text-blue-200 mx-2 my-1">Login</Link>
-
+              {/*<Link to="#leaderboard" className="text-white hover:text-blue-200 mx-2 my-1">Leaderboard</Link> */}
+             { /* <Link to="/referrals" className="text-white hover:text-blue-200 mx-2 my-1">Referrals</Link>  */ } 
+              <Button variant="outline" className="bg-transparent hover:bg-blue-400 text-white border-white hover:border-transparent mx-2 my-1">Login</Button>
+              <Button variant="default" className="bg-white hover:bg-blue-100 text-blue-500 mx-2 my-1">Sign Up</Button>
             </nav>
           </div>
         </header>
@@ -167,17 +189,54 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Leaderboard Section */}
+        <section id="leaderboard" className="py-12 md:py-20 bg-gradient-to-b from-blue-50 to-white">
+      <div className="container mx-auto px-4">
+        <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 ">
+          Leaderboard
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {players.map((player, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between">
+                  <CardTitle className="text-2xl font-bold text-blue-600">#{player.rank}</CardTitle>
+                  {getRankIcon(player.rank)}
+                </CardHeader>
+                <CardContent>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-gray-800">{player.user.name}</h3>
+                    <p className="text-sm text-muted-foreground">@{player.user.profile}</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-3">
+                    <p className="text-sm font-medium text-blue-800">Rewards Earned</p>
+                    <p className="text-2xl font-bold text-blue-600">{player.points.toFixed(2)}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
         {/* Partner Companies Section */}
         <section className="py-10 md:py-16 bg-gray-100">
           <div className="container mx-auto px-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Our Partner Companies</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Trusted by Brands You Know
+            </h3>
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
               {partnerLogos.map((logo, index) => (
                 <motion.img
                   key={index}
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="h-8 md:h-12 object-contain"
+                  className="h-20 md:h-40 object-contain"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 />
