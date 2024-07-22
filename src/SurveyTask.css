@@ -1,0 +1,86 @@
+:root {
+  --primary-color: #FFFFFF;
+  --secondary-color: #3498DB;
+  --background-color: #FFFFFF;
+  --header-background-color: #3C84EC;
+  --text-color: #FFFFFF;
+  --link-hover-color: #BCEAF8;
+}
+.App {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #F0F9FF 0%, #A7D0FC 50%, #8BD1FF 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.App-header {
+  background-color: var(--header-background-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: auto;
+}
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+h2 {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: var(--primary-color);
+  border-top: 2px solid var(--primary-color);
+  padding-top: 20px;
+  margin-top: 40px;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--header-background-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  width: auto; /* Set width to auto */
+}
+button:hover {
+  background-color: var(--link-hover-color);
+  transform: scale(1.1);
+}
+.form-container, .form-container1 {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%; /* Ensure form container takes full width */
+}
