@@ -1,73 +1,193 @@
-// components/ChatBot.jsx
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from './ui/button'; 
-import { MessageCircle, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
+import { IoCloseSharp, IoSend } from "react-icons/io5";
+import { PiChatCenteredLight, PiChatCenteredSlashLight } from "react-icons/pi";
+import { ThreeDots } from 'react-loader-spinner';
+import "./css/chatbot.css";
 
-const ChatBot = () => {
+const options = [
+  {
+    main: "General Questions",
+    sub: ["What is Play2Earn.ai?", "How does Play2Earn.ai work?", "Who can join Play2Earn.ai?"],
+  },
+  {
+    main: "Account & Registration",
+    sub: ["How to create an account?", "How to Log in?", "Reset password", "Update my profile"],
+  },
+  {
+    main: "Tasks & Rewards",
+    sub: ["What type of tasks are available on Play2Earn.ai", "How do i find and complete tasks?", "How are rewards calculated?", "How to withdraw my earnings?"],
+  },
+  {
+    main: "Technical Support",
+    sub: ["I encountered a technical issue", "How to report a bug?", "Is my data secure on Play2Earn.ai"],
+  },
+  {
+    main: "Platform Policies",
+    sub: ["what are the rules for using Play2Earn.ai?", "How to contact customer support?", "Can I refer friends to Play2Earn.ai?"],
+  },
+];
+
+const Chatbot = () => {
+  const [question, setQuestion] = useState("");
+  const [responses, setResponses] = useState([
+    { sender: "bot", text: "Welcome to Play2Earn.ai! Feel free to ask me anything, and I will try to answer any questions you might have" }
+  ]);
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef(null);
 
-  const handleSend = () => {
-    if (inputMessage.trim()) {
-      setMessages([...messages, { text: inputMessage, sender: 'user' }]);
-      setInputMessage('');
-      // Simulating bot response
-      setTimeout(() => {
-        setMessages(prev => [...prev, { text: "Thanks for your message! Our team will get back to you soon.", sender: 'bot' }]);
-      }, 1000);
-    }
+  const handleInputChange = (e) => {
+    setQuestion(e.target.value);
   };
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (question.trim() === "") return;
+
+    const newMessage = { sender: "user", text: question };
+    setResponses([...responses, newMessage]);
+
+    const formData = new URLSearchParams();
+    formData.append("question", question);
+
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/chat", formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        responseType: 'text'
+      });
+      const botMessage = { sender: "bot", text: response.data };
+      setResponses((prevResponses) => [...prevResponses, botMessage]);
+    } catch (error) {
+      console.error("Error fetching response:", error);
+      const errorMessage = { sender: "bot", text: "Sorry, there was an error processing your request. Please try again." };
+      setResponses((prevResponses) => [...prevResponses, errorMessage]);
+    }
+
+    setIsLoading(false);
+    setQuestion("");
+  };
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  const handleSubOptionClick = async (subOption) => {
+    const newMessage = { sender: "user", text: subOption };
+    setResponses([...responses, newMessage]);
+
+    const formData = new URLSearchParams();
+    formData.append("question", subOption);
+
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/chat", formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        responseType: 'text'
+      });
+      const botMessage = { sender: "bot", text: response.data };
+      setResponses((prevResponses) => [...prevResponses, botMessage]);
+    } catch (error) {
+      console.error("Error fetching response:", error);
+      const errorMessage = { sender: "bot", text: "Sorry, there was an error processing your request. Please try again." };
+      setResponses((prevResponses) => [...prevResponses, errorMessage]);
+    }
+
+    setIsLoading(false);
+    setSelectedOption(null); // Reset selected option to show main options again
+  };
+
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const minimizeChat = () => {
+    setIsMinimized(!isMinimized);
+  };
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (isOpen && !isMinimized) {
+      scrollToBottom();
+    }
+  }, [responses, isOpen, isMinimized]);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="bg-white rounded-lg shadow-lg w-80 h-96 flex flex-col"
-          >
-            <div className="bg-blue-500 text-white p-4 rounded-t-lg flex justify-between items-center">
-              <h3 className="font-bold">Chat with us</h3>
-              <Button variant="ghost" size="sm" onClick={() => setIsOpen(false)}>
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-            <div className="flex-grow overflow-y-auto p-4">
-              {messages.map((message, index) => (
-                <div key={index} className={`mb-2 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}>
-                  <span className={`inline-block p-2 rounded-lg ${message.sender === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                    {message.text}
-                  </span>
+    <div>
+      <div className="chatbot-button" onClick={toggleChat}>
+        {isOpen ? <PiChatCenteredSlashLight /> : <PiChatCenteredLight />}
+      </div>
+      <div className={`chatbot-popup ${isOpen ? "open" : ""} ${isMinimized ? "minimized" : ""}`}>
+        <div className="chatbot-header">
+          <button onClick={minimizeChat}>
+            {isMinimized ? <FiMaximize2 /> : <FiMinimize2 />}
+          </button>
+          <text>Play2Earn.ai Bot</text>
+          <button onClick={toggleChat}><IoCloseSharp /></button>
+        </div>
+        {!isMinimized && (
+          <div className="chatbot-body">
+            <div className="chatbot-messages">
+              {responses.map((message, index) => (
+                <div key={index} className={`chatbot-message ${message.sender}`}>
+                  {message.text}
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
-            <div className="p-4 border-t">
-              <div className="flex">
-                <input
-                  type="text"
-                  value={inputMessage}
-                  onChange={(e) => setInputMessage(e.target.value)}
-                  placeholder="Type a message..."
-                  className="flex-grow border rounded-l-lg p-2"
-                />
-                <Button onClick={handleSend} className="rounded-l-none bg-blue-500 hover:bg-blue-600">Send</Button>
+            <div className="chatbot-options">
+              {selectedOption === null ? (
+                options.map((option, index) => (
+                  <button key={index} onClick={() => handleOptionClick(option.main)}>
+                    {option.main}
+                  </button>
+                ))
+              ) : (
+                options
+                  .find((option) => option.main === selectedOption)
+                  ?.sub.map((subOption, subIndex) => (
+                    <button key={subIndex} onClick={() => handleSubOptionClick(subOption)}>
+                      {subOption}
+                    </button>
+                  ))
+              )}
+            </div>
+            {isLoading && (
+              <div className="loading-indicator">
+                <ThreeDots width="50" visible={true} color="#147efb" />
               </div>
-            </div>
-          </motion.div>
+            )}
+            <form onSubmit={handleFormSubmit} className="chatbot-form">
+              <input
+                type="text"
+                value={question}
+                onChange={handleInputChange}
+                placeholder="Ask me anything..."
+                className="chatbot-input"
+                disabled={isLoading} // Disabled input
+              />
+              <button type="submit" className="chatbot-submit" disabled={isLoading}>
+                <IoSend />
+              </button>
+            </form>
+          </div>
         )}
-      </AnimatePresence>
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        className="rounded-full w-16 h-16 flex items-center justify-center bg-blue-500 hover:bg-blue-600 shadow-lg"
-      >
-        <MessageCircle className="h-8 w-8" />
-      </Button>
+      </div>
     </div>
   );
 };
 
-export default ChatBot;
+export default Chatbot;
