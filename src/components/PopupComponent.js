@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './PopupComponent.css'; // Ensure to create this CSS file for styling
+import './PopupComponent.css';
 
 const PopupComponent = ({ type, setTotalScore }) => {
     const [currentLevel, setCurrentLevel] = useState(null);
