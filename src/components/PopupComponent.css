@@ -1,0 +1,67 @@
+/* src/components/PopupComponent.css */
+
+.modal {
+    background: rgba(173, 216, 230, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.captcha-image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: larger;
+    font-weight: bold;
+    background-color: #C2E6F7;
+    color: #615d5d;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.level-button1, .level-button2, .level-button3 {
+    padding: 20px;
+    background-color: #80C9FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+    margin-bottom: 10px;
+}
+
+.submit-button, .back-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.feedback-message {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #B0E0E6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #008CBA;
+    height: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: width 0.5s ease;
+}

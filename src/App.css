@@ -1,38 +1,195 @@
-.App {
+body {
+  background-color: #fff; 
+  background-size: cover;
+  background-position: center;
+  font-family:Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+h1 
+{ 
+color: #615d5d;
+}
+p { 
+  font-size: larger;
+  color: #615d5d;
+
+}
+
+.captcha-container {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+  border-radius: 10px;
+  align-self: center;
+  
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.button {
+  padding: 100px 60px;
+  font-size:larger;
+  font-weight: bold;
+  background-color:#C2E6F7; /* Changed to light blue */
+  color: #615d5d;
+  border: none;
+  cursor: pointer;
+  margin-right: 1cm;
+  align-items: center;
+  border-radius: 25px;
+
+}
+
+
+.level-button1 {
+  padding: 20px 50px;
+  background-color: #80C9FF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: larger;
+
+  margin-bottom: 10px; /* Add margin below each level button */
+}
+.level-button2 {
+  padding: 20px 37px;
+
+  background-color: #0073E6 ;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 10px; /* Add margin below each level button */
+}
+
+.level-button3 {
+  padding: 20px 50px;
+  background-color: #004494;
+  color: white;
+  font-size: larger;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px; /* Add margin below each level button */
+}
+
+
+
+.submit-button, .back-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px; /* Add margin above submit and back buttons */
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.close-modal {
+color: #000000;
+  background-color: white;
+}
+
+.modal {
+  background: rgba(173, 216, 230, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.download-button:hover {
+  background-color: #0056b3; /* Darker shade of primary color on hover */
+  border-color: #0056b3;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+text-align: center;
+
+}
+
+.content {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.actions {
+  text-align: center;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.captcha-image {
+  width: 100px; /* Set the width to 10px */
+  height: 100px; /* Automatically adjust height to maintain aspect ratio */
+  max-width: 100%; /* Ensure the image does not exceed its container width */
+  max-height: 100%; /* Ensure the image does not exceed its container height */
+}
+
+.feedback-message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #B0E0E6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background-color: #008CBA; /* Changed to light blue */
+  height: 20px;
+  border-radius: 5px;
+  text-align: center;
   color: white;
+  font-weight: bold;
+  transition: width 0.5s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.final-score {
+  font-size: 24px;
+  margin-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.final-progress-bar {
+  background-color: #008CBA; /* Changed to light blue */
+  height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  transition: width 0.5s ease;
+}
+
+.submit-button:hover,
+.back-button:hover,
+.button:hover,
+.level-button:hover {
+  opacity: 0.8;
+}
+.button img {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+  margin-right: 8px; /* Space between image and text */
 }

@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import PopupComponent from './components/PopupComponent';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [totalScore, setTotalScore] = useState(0);
+
+    return (
+        <div className="body">
+            <div className="captcha-container">
+                <h1>Welcome to the CAPTCHA Challenge</h1>
+                <p>Test your skills with different types of CAPTCHA tasks. Earn points for correct answers!</p>
+                <PopupComponent type="Text" setTotalScore={setTotalScore} />
+                <PopupComponent type="Audio" setTotalScore={setTotalScore} />
+                <PopupComponent type="Image" setTotalScore={setTotalScore} />
+                <div className="final-score">
+                    Your Total Score: {totalScore}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default App;
