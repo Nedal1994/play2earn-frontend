@@ -1,0 +1,198 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Center the container by default */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.829);
+  border: 2px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  transition: all 0.3s ease-in-out;
+}
+.App.initial {
+  height: 200px;
+}
+.App.expanded {
+  height: auto;
+  padding-bottom: 40px;
+}
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(244, 76, 199, 0.3);
+}
+hr {
+  border: 1px solid #fff;
+  width: 80%;
+  margin: 20px auto;
+}
+audio {
+  margin: 20px 0;
+}
+textarea {
+  width: 90%;
+  height: 100px;
+  resize: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+button {
+  background-color: #BE7ADF;
+  color: #fff;
+  border: 2px solid #1A0339;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  margin: 10px;
+}
+button:hover {
+  background-color: #6724A7;
+  transform: scale(1.1);
+}
+.start-button {
+  width: 85%;
+  color: #fff;
+  background-color: #22045A;
+  border-radius: 15px;
+  margin-top: -10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.start-button:hover {
+  background-color: #22045A;
+  transform: scale(1.1);
+}
+.submit-button {
+  width: 85%;
+  color: #fff;
+  background-color: #3D022A;
+  border-color: #3D022A ;
+  border-radius: 15px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.submit-button:hover {
+  border-color: #3D022A ;
+  background-color: #3D022A;
+  transform: scale(1.05);
+}
+p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.feedback {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.feedback.error {
+  color: #fff;
+}
+.heart {
+  font-size: 1.5em;
+  margin: 0 5px;
+  color: #FF0000;
+}
+.heart.empty {
+  color: #CCCCCC;
+}
+.points-lives {
+  display: flex;
+  justify-content: space-around;
+}
+.points-lives p {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.points-lives p svg {
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+.congrats-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('./assets/audiopic.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+  width: 80%; /* Same width as the start screen */
+  max-width: 600px;
+  height: 200px; /* Same height as the start screen */
+}
+
+.congrats-popup h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.congrats-popup p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.congrats-popup button {
+  background-color: #6724A7;
+  color: #fff;
+  border: 2px solid #1A0339;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.congrats-popup button:hover {
+  background-color: #520e8a;
+  transform: scale(1.1);
+}
+
+
+
+
+
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+  body {
+    justify-content: center; /* Align to the right on larger screens */
+  }
+  .App {
+    margin-right: 20px; /* Ensure some margin from the right edge */
+  }
+}
+@media (max-width: 320px) {
+  .App {
+    width: 90%;
+    padding: 10px; /* Add padding to prevent touching the sides */
+  }
+}
