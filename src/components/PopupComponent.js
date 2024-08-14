@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './PopupComponent.css';
+import './PopupComponent.css'; // Ensure to create this CSS file for styling
 
 const PopupComponent = ({ type, setTotalScore }) => {
     const [currentLevel, setCurrentLevel] = useState(null);
@@ -32,9 +32,9 @@ const PopupComponent = ({ type, setTotalScore }) => {
     useEffect(() => {
         const fetchCaptchas = async () => {
             try {
-                const textResponse1 = await fetch('http://localhost:5000/api/captcha/text/level1');
-                const audioResponse1 = await fetch('http://localhost:5000/api/captcha/audio/level1');
-                const imageResponse1 = await fetch('http://localhost:5000/api/captcha/image/level1');
+                const textResponse1 = await fetch('http://localhost:5001/api/captcha/text/level1');
+                const audioResponse1 = await fetch('http://localhost:5001/api/captcha/audio/level1');
+                const imageResponse1 = await fetch('http://localhost:5001/api/captcha/image/level1');
                 const textData1 = await textResponse1.json();
                 const audioData1 = await audioResponse1.json();
                 const imageData1 = await imageResponse1.json();
@@ -42,9 +42,9 @@ const PopupComponent = ({ type, setTotalScore }) => {
                 setAudioCaptchas({ level1: audioData1 });
                 setImageCaptchas({ level1: imageData1 });
 
-                const textResponse2 = await fetch('http://localhost:5000/api/captcha/text/level2');
-                const audioResponse2 = await fetch('http://localhost:5000/api/captcha/audio/level2');
-                const imageResponse2 = await fetch('http://localhost:5000/api/captcha/image/level2');
+                const textResponse2 = await fetch('http://localhost:5001/api/captcha/text/level2');
+                const audioResponse2 = await fetch('http://localhost:5001/api/captcha/audio/level2');
+                const imageResponse2 = await fetch('http://localhost:5001/api/captcha/image/level2');
                 const textData2 = await textResponse2.json();
                 const audioData2 = await audioResponse2.json();
                 const imageData2 = await imageResponse2.json();
@@ -52,9 +52,9 @@ const PopupComponent = ({ type, setTotalScore }) => {
                 setAudioCaptchas(prevState => ({ ...prevState, level2: audioData2 }));
                 setImageCaptchas(prevState => ({ ...prevState, level2: imageData2 }));
 
-                const textResponse3 = await fetch('http://localhost:5000/api/captcha/text/level3');
-                const audioResponse3 = await fetch('http://localhost:5000/api/captcha/audio/level3');
-                const imageResponse3 = await fetch('http://localhost:5000/api/captcha/image/level3');
+                const textResponse3 = await fetch('http://localhost:5001/api/captcha/text/level3');
+                const audioResponse3 = await fetch('http://localhost:5001/api/captcha/audio/level3');
+                const imageResponse3 = await fetch('http://localhost:5001/api/captcha/image/level3');
                 const textData3 = await textResponse3.json();
                 const audioData3 = await audioResponse3.json();
                 const imageData3 = await imageResponse3.json();
