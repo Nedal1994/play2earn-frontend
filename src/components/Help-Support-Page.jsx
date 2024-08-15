@@ -258,7 +258,7 @@ function App() {
                   </button>
                   {activeQuestion === 'contact-support' && (
                     <div className="faq-answer">
-                      You can contact our customer support team by emailing support@play2earn.ai or by filling out the contact form on the "Support" page.
+                      You can contact our customer support team by emailing p2etokens@gmail.com or by filling out the contact form on the "Support" page.
                     </div>
                   )}
                 </div>
