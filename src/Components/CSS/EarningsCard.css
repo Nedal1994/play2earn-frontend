@@ -1,0 +1,126 @@
+/* EarningsCard.css */
+
+
+.earnings-card h3 {
+  margin-top: 0;
+  color: #333333;
+}
+
+
+.balance {
+  margin-bottom: 20px;
+}
+
+.balance h2 {
+  margin: 0;
+  color: #1F26F2;
+  font-size: 1em; 
+}
+
+.balance p {
+  margin: 5px 0;
+  color: #666666;
+}
+
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item i {
+  font-size: 1.5em;
+  color: #1F26F2;
+  margin-bottom: 5px;
+}
+
+.stat-item p {
+  margin: 0;
+  color: #666666;
+}
+
+.stat-item span {
+  font-weight: bold;
+  color: #333333;
+}
+
+
+.progress-bar {
+  height: 10px;
+  background-color: #E6E6E6;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #1F26F2;
+  border-radius: 5px;
+}
+
+.progress-text {
+  text-align: right;
+  color: #666666;
+  margin: 0 0 20px 0;
+}
+
+
+.view-transactions {
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .balance h2 {
+    font-size: 2em; 
+  }
+
+  .stat-item i {
+    font-size: 1.2em; 
+  }
+
+  .stat-item span {
+    font-size: 14px;
+  }
+
+  .progress-text {
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .balance h2 {
+    font-size: 1.5em; 
+   }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    margin-bottom: 15px; 
+  }
+
+  .stat-item i {
+    font-size: 1em; 
+  }
+
+  .stat-item span {
+    font-size: 12px; 
+  }
+
+  .progress-text {
+    font-size: 12px; }
+
+  .view-transactions {
+    font-size: 14px;
+  }
+}

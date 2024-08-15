@@ -1,0 +1,102 @@
+.delete-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 10px; 
+}
+
+.delete-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.delete-modal-buttons button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-modal-buttons button:first-of-type {
+  background: #007bff;
+  color: white;
+}
+
+.delete-modal-buttons button:last-of-type {
+  background: #ccc;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .delete-modal-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .close-btn {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .delete-modal-buttons button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .delete-modal-content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .close-btn {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  .delete-modal-buttons button {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}
