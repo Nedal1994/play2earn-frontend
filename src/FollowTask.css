@@ -1,0 +1,431 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-start: #6a11cb;
+  --background-end: #2575fc;
+  --text-color: #2c3e50;
+  --card-background: rgba(255, 255, 255, 0.95);
+  --card-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  --transition-speed: 0.3s;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.follow-task-container {
+  max-width: 800px;
+  width: 95%;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: var(--card-background);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-speed) ease;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #0099ff, #6a00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite;
+}
+
+.total-points {
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  animation: countUp 1s ease-out;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-item {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+}
+
+.task-item.completed {
+  background-color: #e1f5fe;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.task-header:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.platform-icon {
+  font-size: 28px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(240, 240, 240, 0.5);
+  transition: all var(--transition-speed) ease;
+  flex-shrink: 0;
+}
+
+.platform-icon.twitter { color: #1DA1F2; }
+.platform-icon.linkedin { color: #0077B5; }
+.platform-icon.telegram { color: #0088cc; }
+.platform-icon.youtube { color: #FF0000; }
+.platform-icon.instagram { color: #E4405F; }
+.platform-icon.tiktok { color: #000000; }
+
+.account-name {
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.task-points {
+  font-size: 14px;
+  color: #6c757d;
+  width: 70px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.follow-button, .upload-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.follow-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.follow-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(52, 152, 219, 0.3);
+}
+
+.upload-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.upload-button:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(46, 204, 113, 0.3);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.completed-text {
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.task-details {
+  padding: 15px;
+  border-top: 1px solid rgba(233, 236, 239, 0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.completed-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.completed-date {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.view-screenshot {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color var(--transition-speed) ease;
+}
+
+.view-screenshot:hover {
+  text-decoration: underline;
+}
+
+.share-options h4 {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.share-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.share-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.share-buttons button:nth-child(1) { background-color: #1DA1F2; }
+.share-buttons button:nth-child(2) { background-color: #25D366; }
+.share-buttons button:nth-child(3) { background-color: #0088cc; }
+
+.notification {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 0.3s ease-out, fadeOut 0.3s ease-in 2.5s forwards;
+  z-index: 1000;
+  font-size: 14px;
+  max-width: 90%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.notification.success { background-color: var(--secondary-color); }
+.notification.error { background-color: #e74c3c; }
+.notification.info { background-color: var(--primary-color); }
+
+.task-item {
+  position: relative; /* To allow absolute positioning of the notification */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.verification-popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.verification-popup h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.verification-popup p {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+.verification-popup .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.verification-popup .close-button:hover {
+  color: var(--text-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  from { transform: translate(-50%, 10px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes zoomIn {
+  from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .follow-task-container {
+    padding: 20px;
+    margin: 15px auto;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .account-name {
+    max-width: 100%;
+  }
+
+  .follow-button, .upload-button {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .task-points {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .follow-task-container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .total-points {
+    font-size: 18px;
+  }
+
+  .task-info {
+    gap: 8px;
+  }
+
+  .platform-icon {
+    font-size: 22px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .account-name {
+    font-size: 14px;
+  }
+
+  .follow-button, .upload-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
