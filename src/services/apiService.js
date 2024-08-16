@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/audio-transcription';
+const API_URL = 'http://localhost:5002/api/audio-transcription';
 
 // Fetch all audio transcription tasks
 export const fetchAllTasks = async () => {
